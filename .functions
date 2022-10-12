@@ -1,0 +1,98 @@
+# Functions
+#
+# Example functions for remote and recursive remote copying.
+# This assumes you have setup your SSH keys appropriately.
+# Replace "user" with the username you wish to use and "IP" with the IP address
+# function ubucp() { scp "$@" user@IP:/path/to/user/tmp;}
+# function ubuget() { scp user@IP:/path/to/user/"$@" "$@";}
+# function ubugetr() { scp -r user@IP:/path/to/user/"$@" "$@";}
+# function ubucpr() { scp -r "$@" user@IP:/path/to/user/tmp/"$@";}
+#
+# Send a message via the Messages app
+#function msg() {
+#    osascript -e "tell application \"Messages\" to send \"$1\" to buddy \"$2\""
+#}
+
+# Manually start and stop the Leap Motion daemon and agent
+#function start-leap() {
+#    RUNNING=`ps -ef | grep "Leap Motion" | grep leapd`
+#    [ "$RUNNING" ] || {
+#        /Applications/Leap\ Motion.app/Contents/MacOS/leapd > /dev/null 2>&1 &
+#        sleep 1
+#    }
+#    RUNNING=`ps -ef | grep "Leap Motion" | grep -v leapd | grep -v grep`
+#    [ "$RUNNING" ] || {
+#        open /Applications/Leap\ Motion.app
+#    }
+#}
+#function stop-leap() {
+#    RUNNING=`ps -ef | grep "Leap Motion" | grep leapd`
+#    [ "$RUNNING" ] && killall leapd
+#    RUNNING=`ps -ef | grep "Leap Motion" | grep -v leapd | grep -v grep`
+#    [ "$RUNNING" ] && killall Leap\ Motion
+#}
+#function ethcp1() { scp "$@" ethos@10.0.1.61:/home/ethos/transfers;}
+#function ethget1() { scp ethos@10.0.1.61:/home/ethos/transfers/"$@" "$@";}
+#function ethgetr1() { scp -r ethos@10.0.1.61:/home/ethos/transfers/"$@" "$@";}
+#function ethcpr1() { scp -r "$@" ethos@10.0.1.61:/home/ethos/transfers/"$@";}
+
+function dmv() {
+    __fname="$(ls -t ~/Downloads | head -n 1)"
+    __fpath="$HOME/Downloads/"$__fname""
+    mv "$__fpath" \.
+}
+function dcp() {
+    __fname="$(ls -t ~/Downloads | head -n 1)"
+    __fpath="$HOME/Downloads/"$__fname""
+    cp -a "$__fpath" \.
+}
+
+function maccp() { scp "$@" ronaldrecord@10.0.1.74:/Users/ronaldrecord/transfers;}
+function macget() { scp ronaldrecord@10.0.1.74:/Users/ronaldrecord/transfers/"$@" "$@";}
+function macgetr() { scp -r ronaldrecord@10.0.1.74:/Users/ronaldrecord/transfers/"$@" "$@";}
+function maccpr() { scp -r "$@" ronaldrecord@10.0.1.74:/Users/ronaldrecord/transfers/"$@";}
+function minicp() { scp "$@" rrecord@10.0.1.88:/Users/rrecord/transfers;}
+function miniget() { scp rrecord@10.0.1.88:/Users/rrecord/transfers/"$@" "$@";}
+function minigetr() { scp -r rrecord@10.0.1.88:/Users/rrecord/transfers/"$@" "$@";}
+function minicpr() { scp -r "$@" rrecord@10.0.1.88:/Users/rrecord/transfers/"$@";}
+function mmcp() { scp "$@" pi@10.0.1.85:/home/pi/transfers;}
+function mmget() { scp pi@10.0.1.85:/home/pi/transfers/"$@" "$@";}
+function mmgetr() { scp -r pi@10.0.1.85:/home/pi/transfers/"$@" "$@";}
+function mmcpr() { scp -r "$@" pi@10.0.1.85:/home/pi/transfers/"$@";}
+function 400cp() { scp "$@" ronnie@10.0.1.80:/home/ronnie/transfers;}
+function 400get() { scp ronnie@10.0.1.80:/home/ronnie/transfers/"$@" "$@";}
+function 400getr() { scp -r ronnie@10.0.1.80:/home/ronnie/transfers/"$@" "$@";}
+function 400cpr() { scp -r "$@" ronnie@10.0.1.80:/home/ronnie/transfers/"$@";}
+function rocp() { scp -o UserKnownHostsFile=~/.ssh/known_hosts_ropieee "$@" root@10.0.1.94:/root/transfers;}
+function roget() { scp -o UserKnownHostsFile=~/.ssh/known_hosts_ropieee root@10.0.1.94:/root/transfers/"$@" "$@";}
+function rogetr() { scp -r -o UserKnownHostsFile=~/.ssh/known_hosts_ropieee root@10.0.1.94:/root/transfers/"$@" "$@";}
+function rocpr() { scp -r -o UserKnownHostsFile=~/.ssh/known_hosts_ropieee "$@" root@10.0.1.94:/root/transfers/"$@";}
+function gamecp() { scp "$@" pi@10.0.1.85:/home/pi/transfers;}
+function gameget() { scp pi@10.0.1.85:/home/pi/transfers/"$@" "$@";}
+function gamegetr() { scp -r pi@10.0.1.85:/home/pi/transfers/"$@" "$@";}
+function gamecpr() { scp -r "$@" pi@10.0.1.85:/home/pi/transfers/"$@";}
+function roncp() { scp "$@" ronrecord@ronrecord.com:/transfers;}
+function ronget() { scp ronrecord@ronrecord.com:/transfers/"$@" "$@";}
+function rongetr() { scp -r ronrecord@ronrecord.com:/transfers/"$@" "$@";}
+function roncpr() { scp -r "$@" ronrecord@ronrecord.com:/transfers/"$@";}
+function doccp() { scp "$@" doctorwhen@10.0.1.22:/home/doctorwhen/transfers;}
+function docget() { scp doctorwhen@10.0.1.22:/home/doctorwhen/transfers/"$@" "$@";}
+function docgetr() { scp -r doctorwhen@10.0.1.22:/home/doctorwhen/transfers/"$@" "$@";}
+function doccpr() { scp -r "$@" doctorwhen@10.0.1.22:/home/doctorwhen/transfers/"$@";}
+function ronniecp() { scp "$@" ronnie@10.0.1.55:/home/ronnie/transfers;}
+function ronnieget() { scp ronnie@10.0.1.55:/home/ronnie/transfers/"$@" "$@";}
+function ronniegetr() { scp -r ronnie@10.0.1.55:/home/ronnie/transfers/"$@" "$@";}
+function ronniecpr() { scp -r "$@" ronnie@10.0.1.55:/home/ronnie/transfers/"$@";}
+function vivcp() { scp "$@" doctorwhen@10.0.1.62:/home/doctorwhen/transfers;}
+function vivget() { scp doctorwhen@10.0.1.62:/home/doctorwhen/transfers/"$@" "$@";}
+function vivgetr() { scp -r doctorwhen@10.0.1.62:/home/doctorwhen/transfers/"$@" "$@";}
+function vivcpr() { scp -r "$@" doctorwhen@10.0.1.62:/home/doctorwhen/transfers/"$@";}
+#function gen1bcp() { scp "$@" root@gen1b.local:/home/root;}
+#function gen1bget() { scp root@gen1b.local:/home/root/"$@" "$@";}
+#function gen1bgetr() { scp -r root@gen1b.local:/home/root/"$@" "$@";}
+#function gen1bcpr() { scp -r "$@" root@gen1b.local:/home/root/"$@";}
+#function gen2cp() { scp "$@" root@gen2.local:/home/root;}
+#function gen2get() { scp root@gen2.local:/home/root/"$@" "$@";}
+#function gen2getr() { scp -r root@gen2.local:/home/root/"$@" "$@";}
+#function gen2cpr() { scp -r "$@" root@gen2.local:/home/root/"$@";}
+
