@@ -7,6 +7,8 @@
 ## @version 1.0.1
 ##
 
+### Setup and Configuration # Begin
+#
 ## Install ZSH
 # Install with package manager on most platforms
 # Use 'brew install zsh' on Mac OS to get version 5.9
@@ -38,6 +40,19 @@
 ## Install Meslo Nerd Font patched for Powerlevel10k
 # See https://github.com/romkatv/powerlevel10k#fonts
 # Configure terminal emulator, e.g. kitty.conf: 'font_family MesloLGS NF'
+#
+## Tab titles on Mac OS
+# I needed to install the zsh-tab-title plugin to get Kitty tab titles right
+#
+#   git clone https://github.com/trystan2k/zsh-tab-title \
+#     ~/.oh-my-zsh/custom/plugins/zsh-tab-title
+#
+# Add zsh-tab-title into plugins array in .zshrc
+# Add the following:
+#   ZSH_TAB_TITLE_DEFAULT_DISABLE_PREFIX=true
+#   ZSH_TAB_TITLE_ONLY_FOLDER=true
+#
+### Setup and Configuration # End
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -99,6 +114,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+ZSH_TAB_TITLE_DEFAULT_DISABLE_PREFIX=true
+ZSH_TAB_TITLE_ONLY_FOLDER=true
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -210,7 +228,7 @@ elif command -v pacman > /dev/null; then
 elif command -v dnf > /dev/null; then
   plugins+=(dnf command-not-found)
 elif [[ `uname` == "Darwin" ]]; then
-  plugins+=(macos)
+  plugins+=(macos zsh-tab-title)
   if command -v brew > /dev/null; then
     HB_CNF_HANDLER="$(brew --repository)/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
     [ -f "$HB_CNF_HANDLER" ] && {
