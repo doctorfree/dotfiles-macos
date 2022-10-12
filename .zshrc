@@ -285,6 +285,9 @@ else
   alias ls='/bin/ls -G'
 fi
 
+GPG_TTY=$(tty)
+export GPG_TTY
+
 if command -v zoxide > /dev/null; then
   eval "$(zoxide init zsh)"
 fi
