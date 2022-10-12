@@ -115,9 +115,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-ZSH_TAB_TITLE_DEFAULT_DISABLE_PREFIX=true
-ZSH_TAB_TITLE_ONLY_FOLDER=true
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -221,14 +218,10 @@ if command -v thefuck > /dev/null; then
 fi
 
 # What OS are we running?
-if command -v apt > /dev/null; then
-  plugins+=(debian command-not-found)
-elif command -v pacman > /dev/null; then
-  plugins+=(archlinux command-not-found)
-elif command -v dnf > /dev/null; then
-  plugins+=(dnf command-not-found)
-elif [[ `uname` == "Darwin" ]]; then
+if [[ `uname` == "Darwin" ]]; then
   plugins+=(macos zsh-tab-title)
+  ZSH_TAB_TITLE_DEFAULT_DISABLE_PREFIX=true
+  ZSH_TAB_TITLE_ONLY_FOLDER=true
   if command -v brew > /dev/null; then
     HB_CNF_HANDLER="$(brew --repository)/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
     [ -f "$HB_CNF_HANDLER" ] && {
@@ -240,6 +233,12 @@ elif [[ `uname` == "Darwin" ]]; then
   if command -v port > /dev/null; then
     plugins+=(macports)
   fi
+elif command -v apt > /dev/null; then
+  plugins+=(debian command-not-found)
+elif command -v pacman > /dev/null; then
+  plugins+=(archlinux command-not-found)
+elif command -v dnf > /dev/null; then
+  plugins+=(dnf command-not-found)
 fi
 
 # Do we have systemd on board?
@@ -329,6 +328,9 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 [ -f ~/.aliases ] && source ~/.aliases
+
+# Set the location of the bat config file
+export BAT_CONFIG_PATH="/etc/bat.conf"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
