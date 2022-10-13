@@ -11,6 +11,7 @@ alias m='models'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias lss='ls'
 alias ldown='ls -1tr ~/Downloads'
 alias df='df -h'
 alias du='du -h'
@@ -67,10 +68,6 @@ alias cdeth='cd "/Users/doctorwhen/Mining/ethos/home_ethos"'
 alias cdaud='cd "/Volumes/Seagate_8TB/Documents/My Documents/Audio"'
 alias powercli='cd /Volumes/Seagate_8TB/Documents/VMware_Doc/PowerCLI'
 
-# ProfitTrailer configuration files
-export PTPAIRS=`ls -l /usr/local/lib/PTMagic/_presets/Default/PAIRS.properties | awk ' { print $11 } '`
-export PTDIR=`dirname ${PTPAIRS}`
-alias ptconf="cd ${PTDIR}"
 alias cdfinance='cd "/Volumes/Seagate_8TB/Documents/My Documents/Finance"'
 alias mbsa='cd "/u/audio"'
 alias mbsm='cd "/Volumes/Seagate_8TB/Movies/Work"'
