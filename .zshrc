@@ -74,6 +74,21 @@ fi
 [ -d ~/bin ] && PATH=$PATH:~/bin
 # To pickup GNU coreutils from the Brew installation path
 [ -d /usr/local/opt/coreutils/libexec/gnubin ] && PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+
+# Go paths
+[ -d ~/go ] && export GOPATH=$HOME/go
+[ "$GOPATH" ] && [ -d "$GOPATH/bin" ] && PATH="$PATH:$GOPATH/bin"
+[ -d /usr/local/go ] && export GOROOT=/usr/local/go
+[ -d /usr/local/go/bin ] && {
+  if [ `echo $PATH | grep -c /usr/local/go/bin` -ne "1" ]; then
+    PATH="$PATH:/usr/local/go/bin"
+  fi
+}
+[ -d $HOME/go/bin ] && {
+  if [ `echo $PATH | grep -c $HOME/go/bin` -ne "1" ]; then
+    PATH="$PATH:$HOME/go/bin"
+  fi
+}
 export PATH
 #export LDFLAGS="-L/usr/local/opt/libiconv/lib"
 #export CPPFLAGS="-I/usr/local/opt/libiconv/include"
@@ -97,12 +112,6 @@ export PATH=$PATH:$HOME/context/tex/texmf-osx-64/bin
 
 # The next line enables shell command completion for gcloud.
 # if [ -f ~/Google/google-cloud-sdk/completion.zsh.inc ]; then . ~/Google/google-cloud-sdk/completion.zsh.inc; fi
-
-[ -d $HOME/.pyenv ] && export PYENV_ROOT="$HOME/.pyenv"
-[ -d $HOME/.pyenv/bin ] && export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv > /dev/null; then
-  eval "$(pyenv init --path)"
-fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -336,3 +345,12 @@ export BAT_CONFIG_PATH="/etc/bat.conf"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+[ -d $HOME/.pyenv ] && export PYENV_ROOT="$HOME/.pyenv"
+[ -d $HOME/.pyenv/bin ] && export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv > /dev/null; then
+  eval "$(pyenv init --path)"
+fi
+
+# Created by `pipx` on 2023-01-06 19:13:48
+export PATH="$PATH:/Users/doctorwhen/.local/bin"
