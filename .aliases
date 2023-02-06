@@ -45,6 +45,10 @@ alias rpi='cd /Volumes/Seagate_8TB/Raspberry_Pi'
 alias transcend='cd /Volumes/Transcend'
 alias viloan='vi "/Volumes/Seagate_8TB/Documents/My Documents/Finance/Marlene-Juice-Loan.txt"'
 alias vimarcela='vi "/Volumes/Seagate_8TB/Documents/Home/Marcela-Hours.txt"'
+# To use Vim
+command -v vim > /dev/null && alias vi='vim'
+# To use NeoVim
+command -v nvim > /dev/null && alias vi='nvim'
 # Web hosting directories
 alias ronrecord='cd "/Volumes/Seagate_8TB/Documents/My Documents/ronrecord.com/httpdocs"'
 alias themes='cd "/Volumes/Seagate_8TB/Documents/My Documents/ronrecord.com/httpdocs/Themes/Chrome"'
