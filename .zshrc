@@ -354,3 +354,26 @@ fi
 
 # Created by `pipx` on 2023-01-06 19:13:48
 export PATH="$PATH:/Users/doctorwhen/.local/bin"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+eval "$(/usr/local/bin/brew shellenv)"
+
+# Created by `pipx` on 2023-02-17 19:43:43
+export PATH="$PATH:/Users/doctorwhen/Library/Python/3.11/bin"
+# Source the Lazyman shell initialization for aliases and nvims selector
+[ -f ~/.config/nvim-Lazyman/.lazymanrc ] && source ~/.config/nvim-Lazyman/.lazymanrc
+# Source the Lazyman shell initialization for nvims key binding
+[ -f ~/.config/nvim-Lazyman/.nvimsbind ] && source ~/.config/nvim-Lazyman/.nvimsbind
+# Bob neovim version manager path
+[ -d ${HOME}/.local/share/bob/nvim-bin ] && {
+  export PATH="${HOME}/.local/share/bob/nvim-bin${PATH:+:${PATH}}"
+}
+[ -f ~/src/AppleScripts/zshMusic/zshMusic.zsh ] && {
+  source ~/src/AppleScripts/zshMusic/zshMusic.zsh
+}
+# Luarocks bin path
+[ -d ${HOME}/.luarocks/bin ] && {
+  export PATH="${HOME}/.luarocks/bin${PATH:+:${PATH}}"
+}

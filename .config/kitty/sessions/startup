@@ -2,8 +2,7 @@
 #
 # Kitty tab with Bash shell
 new_tab
-launch zsh
-launch neofetch
+launch --hold neofetch --off
 enabled_layouts tall:bias=50;full_size=1
 layout tall
 

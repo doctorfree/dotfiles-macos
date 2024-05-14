@@ -110,3 +110,15 @@ fi
 [ -f "/Users/doctorwhen/.ghcup/env" ] && source "/Users/doctorwhen/.ghcup/env" # ghcup-env
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# Source the Lazyman shell initialization for aliases and nvims selector
+[ -f ~/.config/nvim-Lazyman/.lazymanrc ] && source ~/.config/nvim-Lazyman/.lazymanrc
+# Source the Lazyman shell initialization for nvims key binding
+[ -f ~/.config/nvim-Lazyman/.nvimsbind ] && source ~/.config/nvim-Lazyman/.nvimsbind
+# Bob neovim version manager path
+[ -d ${HOME}/.local/share/bob/nvim-bin ] && {
+  export PATH="${HOME}/.local/share/bob/nvim-bin${PATH:+:${PATH}}"
+}
+# Luarocks bin path
+[ -d ${HOME}/.luarocks/bin ] && {
+  export PATH="${HOME}/.luarocks/bin${PATH:+:${PATH}}"
+}
